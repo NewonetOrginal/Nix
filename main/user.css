@@ -1,0 +1,116 @@
+:root {
+  --bar-height: 90px;
+  --cyber-neon: #00e5ff;
+  --cyber-pink: #ff71db;
+}
+
+/* --- 1. Rounded Corners & Hover Lift Effects --- */
+.main-card-card,
+.main-card-imageContainer img,
+.main-entityHeader-image,
+.main-yourLibraryX-entryContainer {
+  border-radius: 8px !important;
+  overflow: hidden !important;
+}
+
+/* Card hover elevation */
+.main-card-card {
+  transition: transform 0.25s cubic-bezier(0.3, 0, 0, 1), box-shadow 0.25s cubic-bezier(0.3, 0, 0, 1) !important;
+}
+
+.main-card-card:hover {
+  transform: translateY(-8px) !important;
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 229, 255, 0.2) !important;
+}
+
+/* --- 2. Clean Up UI Clutter --- */
+/* Hide upgrade buttons, friend activity headers, and extra noise */
+.main-topBar-UpgradeButton,
+.main-userWidget-box,
+.main-buddyFeed-header,
+.main-devicePicker-devicePicker {
+  display: none !important;
+}
+
+/* --- 3. Thin & Rounded Scrollbars --- */
+::-webkit-scrollbar {
+  width: 6px !important;
+  height: 6px !important;
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 4px !important;
+  background-color: var(--spice-button-disabled) !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--cyber-neon) !important;
+  box-shadow: 0 0 8px var(--cyber-neon) !important;
+}
+
+::-webkit-scrollbar-button {
+  display: none !important;
+}
+
+/* --- 4. Custom Bottom Player Bar --- */
+.main-nowPlayingBar-container {
+  height: var(--bar-height) !important;
+  background-color: var(--spice-player) !important;
+  border-top: 1px solid rgba(0, 229, 255, 0.15) !important;
+  padding: 0 16px !important;
+}
+
+/* Floating progress bar styling */
+.playback-progressbar .x-progressBar-fillColor {
+  background-color: var(--cyber-neon) !important;
+  box-shadow: 0 0 8px var(--cyber-neon) !important;
+}
+
+/* --- 5. Play / Action Buttons --- */
+.main-playButton-PlayButton,
+.main-playPauseButton-button {
+  background-color: var(--cyber-pink) !important;
+  color: #0f1015 !important;
+  border-radius: 50% !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+
+.main-playButton-PlayButton:hover,
+.main-playPauseButton-button:hover {
+  transform: scale(1.1) !important;
+  box-shadow: 0 0 12px var(--cyber-pink) !important;
+  background-color: var(--cyber-pink) !important;
+}
+
+/* --- 6. Track List Glow & Highlights --- */
+.main-trackList-trackListRow {
+  border-radius: 6px !important;
+  transition: background-color 0.2s ease !important;
+}
+
+.main-trackList-trackListRow:hover {
+  background-color: var(--spice-selected-row) !important;
+}
+
+.main-trackList-trackListRow.main-trackList-selected {
+  background-color: var(--spice-selected-row) !important;
+  border-left: 3px solid var(--cyber-neon) !important;
+}
+
+.main-trackList-rowTitle {
+  color: var(--spice-text) !important;
+}
+
+/* --- 7. Search Bar Styling --- */
+.x-searchInput-searchInputInput {
+  background-color: var(--spice-card) !important;
+  color: var(--cyber-neon) !important;
+  border-radius: 6px !important;
+  border: 1px solid rgba(0, 229, 255, 0.2) !important;
+}
+
+.x-searchInput-searchInputInput:focus {
+  border-color: var(--cyber-neon) !important;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.3) !important;
+}

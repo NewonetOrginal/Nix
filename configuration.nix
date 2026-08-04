@@ -194,8 +194,26 @@ programs.starship.enable = true;
     in {
       enable = true;
 
-      theme = spicePkgs.themes.catppuccin;
-      colorScheme = "mocha";
+theme = spicePkgs.themes.catppuccin;
+
+customColorScheme = {
+    text               = "00e5ff";
+    subtext            = "a9b1d6";
+    sidebar-text       = "a9b1d6";
+    main               = "0f1015";
+    sidebar            = "0b0c10";
+    player             = "0f1015";
+    card               = "161821";
+    shadow             = "000000";
+    selected-row       = "1f2335";
+    button             = "ff71db";
+    button-active      = "ff71db";
+    button-disabled    = "525a6c";
+    tab-active         = "00e5ff";
+    notification       = "00e5ff";
+    notification-error = "ff334b";
+    misc               = "66ffb2";
+  };
 
       enabledExtensions = with spicePkgs.extensions; [
         adblockify
