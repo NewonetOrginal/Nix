@@ -1,0 +1,12 @@
+
+# Ignore temporary backup files
+*~
+*.swp
+
+# Ignore potential hardware-specific state
+result
+result-*
+
+# Secret files (if you ever store raw age/sops keys or passwords locally)
+*.key
+*.pem
