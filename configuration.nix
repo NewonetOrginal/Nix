@@ -141,6 +141,7 @@ programs.starship.enable = true;
     helix           # Terminal editor
     wiremix         # Audio mixer TUI
     opencode        # AI coding assistant
+    cava
 
     # Desktop & Wayland Setup
     waybar          # Status bar
