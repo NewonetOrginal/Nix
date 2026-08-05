@@ -142,6 +142,7 @@ programs.starship.enable = true;
     wiremix         # Audio mixer TUI
     opencode        # AI coding assistant
     cava
+    pastel
 
     # Desktop & Wayland Setup
     waybar          # Status bar
