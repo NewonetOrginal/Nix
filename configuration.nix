@@ -97,7 +97,7 @@ hardware.nvidia = {
   nixpkgs.config.allowUnfree = true;
 
   programs.steam = {
-  enable = false;
+  enable = true;
   extraCompatPackages = with pkgs; [
     proton-ge-bin
   ];
@@ -155,6 +155,7 @@ programs.starship.enable = true;
     # Apps
     filezilla
     prismlauncher
+    beammp-launcher
 
     # Core Utils & Archives
     zsh
