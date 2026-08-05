@@ -154,6 +154,7 @@ programs.starship.enable = true;
 
     # Apps
     filezilla
+    prismlauncher
 
     # Core Utils & Archives
     zsh
