@@ -69,6 +69,10 @@
     enable = true;
     wlr.enable = true;
     extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = [
+      "wlr"
+      "gtk"
+    ];
   };
 
   # Users
@@ -144,6 +148,7 @@
     NVD_BACKEND = "direct";
     ELECTRON_OZONE_PLATFORM_HINT = "wayland";
     PATH = [ "$HOME/.cargo/bin" ];
+    NIXOS_OZONE_WL = "1";
   };
 
   environment.variables = {
