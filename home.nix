@@ -30,7 +30,7 @@
 
   programs.firefox.enable = true;
 
-  programs.waybar = 
+  programs.waybar = {
     enable = true;
     settings = {
       mainBar = {
@@ -185,7 +185,7 @@ window#waybar {
     color: #ff334b;
 }
       '';
-    };
+    
   };
 
   # Shell & Terminal
@@ -263,7 +263,6 @@ window#waybar {
     pastel
     rust-analyzer
     opencode
-    tldr
 
     # Desktop & Wayland Setup
     rofi
@@ -274,7 +273,5 @@ window#waybar {
     prismlauncher
     beammp-launcher
     playerctl
-    mpv
-    
   ];
 }
