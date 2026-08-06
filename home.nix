@@ -294,11 +294,11 @@
 
     # Custom Commands
     (writeShellScriptBin "rebuild" ''
-          set -e
-        MSG="''${1:-update system}"
+      set -e
+      MSG="''${1:-update system}"
       cd /etc/nixos
       git add .
-      git commit -m "$MGS"
+      git commit -m "$MSG"
       git push
       sudo nixos-rebuild switch --flake .
     '')
