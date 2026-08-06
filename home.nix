@@ -83,6 +83,7 @@
     pastel
     rust-analyzer
     opencode
+    tldr
 
     # Desktop & Wayland Setup
     rofi
@@ -93,5 +94,7 @@
     prismlauncher
     beammp-launcher
     playerctl
+    mpv
+    
   ];
 }
