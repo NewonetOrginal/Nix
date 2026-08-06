@@ -106,7 +106,6 @@
   stylix = {
     enable = true;
     image = ./WallpapersFused.png;
-    targets.wallpaper.enable = false;
     polarity = "dark";
     autoEnable = false;
   };
