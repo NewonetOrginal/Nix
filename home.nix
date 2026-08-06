@@ -232,9 +232,6 @@
     };
   };
 
-  programs.waybar = {
-    enable = true;
-  };
 
   # --- USER PACKAGES ---
   home.packages = with pkgs; [
