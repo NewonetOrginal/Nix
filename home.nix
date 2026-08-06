@@ -37,15 +37,15 @@
         layer = "top";
         position = "top";
         height = 28;
-        modules-left = [ "custom/nixicon"  "river/tags"  "mpris"];
-        modules-center = [ "clock"];
-        modules-right = [ "network"  "pulseaudio"  "cpu"  "temperature"  "custom/gpu"  "memory"  "tray"];
+        modules-left = [ "custom/nixicon" "river/tags" "mpris" ];
+        modules-center = [ "clock" ];
+        modules-right = [ "network" "pulseaudio" "cpu" "temperature" "custom/gpu" "memory" "tray" ];
 
         "pulseaudio" = {
           format = "{icon} {volume}%";
           format-muted = "󰝟 Muted";
           format-icons = {
-            default = ["󰕿" "󰖀" "󰕾"];
+            default = [ "󰕿" "󰖀" "󰕾" ];
           };
         };
         "cpu" = {
@@ -59,7 +59,7 @@
         "temperature" = {
           critical-threshold = 80;
           format = "{icon} {temperatureC}C";
-          format-icons = ["" "" "" ""];
+          format-icons = [ "" "" "" "" ];
         };
         "memory" = {
           format = " {percentage}%";
@@ -69,13 +69,13 @@
           };
         };
         "custom/gpu" = {
-        exec = ''nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | awk -F', ' '{u=$1; t=$2; u_col=(u>85?"#ff334b":(u>60?"#ffb300":"#00ff99")); t_col=(t>80?"#ff334b":(t>65?"#ffb300":"#5ce6ff")); printf "<span foreground=\"#ff71db\">󰢮</span> <span foreground=\"%s\">%d%%</span> <span foreground=\"%s\">%d°C</span>\n", u_col, u, t_col, t}' '';
-        interval = 2;
-        format = "{}";
+          exec = ''nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | awk -F', ' '{u=$1; t=$2; u_col=(u>85?"#ff334b":(u>60?"#ffb300":"#00ff99")); t_col=(t>80?"#ff334b":(t>65?"#ffb300":"#5ce6ff")); printf "<span foreground=\"#ff71db\">󰢮</span> <span foreground=\"%s\">%d%%</span> <span foreground=\"%s\">%d°C</span>\n", u_col, u, t_col, t}' '';
+          interval = 2;
+          format = "{}";
         };
         "mpris" = {
           player = "playerctld";
-          ignored-players = ["firefox" "discord" "chromium" "chrome"];
+          ignored-players = [ "firefox" "discord" "chromium" "chrome" ];
           format = "{player_icon} <i>{artist} - {title}</i>";
           format-paused = "{status_icon} <i>{artist} - {title}</i>";
           player-icons = {
@@ -99,95 +99,88 @@
       };
     };
     style = ''
+      * {
+          border: none;
+          font-family: "DejaVuSansMono Nerd Font", monospace;
+          font-weight: bold;
+          font-size: 14px;
+      }
 
-* {
-    border: none;
-    font-family: "DejaVuSansMono Nerd Font", monospace;
-    font-weight: bold;
-    font-size: 14px;
-}
+      window#waybar {
+          background-color: rgba(15, 16, 21, 0.60);
+          color: #e2e8f0;
+          border-radius: 8px;
+          border: 1px solid rgba(51, 119, 255, 0.4);
+      }
 
-window#waybar {
-    background-color: rgba(15, 16, 21, 0.60);
-    color: #e2e8f0;
-    border-radius: 8px;
-    border: 1px solid rgba(51, 119, 255, 0.4);
-}
+      #cpu,
+      #tray,
+      #tags,
+      #clock,
+      #mpris,
+      #custom-nixicon,
+      #network,
+      #temperature,
+      #custom-gpu,
+      #memory,
+      #pulseaudio {
+          padding: 0 8px;
+          margin: 0 2px;
+      }
 
-#cpu,
-#tray,
-#tags,
-#clock,
-#mpris,
-#custom-nixicon,
-#network,
-#temperature,
-#custom-gpu,
-#memory,
-#pulseaudio {
-    padding: 0 8px;
-    margin: 0 2px;
-}
+      #clock {
+          color: #00f0ff;
+          background-color: rgba(0, 240, 255, 0.1);
+          border-radius: 4px;
+      }
 
-#clock {
-    color: #00f0ff;
-    background-color: rgba(0, 240, 255, 0.1);
-    border-radius: 4px;
-}
+      #mpris,
+      #cpu,
+      #temperature {
+          color: #ff71db;
+      }
 
+      #network,
+      #memory {
+          color: #ffd180;
+      }
 
+      #custom-nixicon,
+      #tags button.focused,
+      #pulseaudio {
+          color: #66ffb2;
+      }
 
-#mpris,
-#cpu,
-#temperature {
-    color: #ff71db;
-}
+      #tags button {
+          color: #525a6c;
+          padding: 0 4px;
+      }
 
-#network,
-#memory {
-    color: #ffd180;
-}
+      #tags button.focused {
+          background-color: rgba(102, 255, 178, 0.15);
+          border-radius: 4px;
+      }
 
-#custom-nixicon,
-#tags button.focused,
-#pulseaudio {
-    color: #66ffb2;
-}
+      #tags button.urgent {
+          color: #ff334b;
+      }
 
-#tags button {
-    color: #525a6c;
-    padding: 0 4px;
-}
+      #tray {
+          color: #525a6c;
+      }
 
-#tags button.focused {
-    background-color: rgba(102, 255, 178, 0.15);
-    border-radius: 4px;
-}
+      #cpu.warning,
+      #memory.warning {
+          color: #ffd180;
+      }
 
-#tags button.urgent {
-    color: #ff334b;
-}
-
-#tray {
-    color: #525a6c;
-}
-
-/* Abnormal States */
-
-#cpu.warning,
-#memory.warning {
-    color: #ffd180;
-}
-
-#cpu.critical,
-#temperature.critical,
-#memory.critical {
-    color: #ff334b;
-}
-      '';
-    
+      #cpu.critical,
+      #temperature.critical,
+      #memory.critical {
+          color: #ff334b;
+      }
+    '';
   };
-
   # Shell & Terminal
   programs.zsh = {
     enable = true;
