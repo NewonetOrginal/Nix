@@ -15,8 +15,11 @@
   programs.zsh = {
     enable = true;
     enableCompletion = true;
-    autosuggestions.enable = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    initExtra = ''
+    fastfetch
+    '';
   };
 
   programs.starship.enable = true;
@@ -29,7 +32,6 @@
   programs.git.enable = true;
 
   # --- USER PACKAGES ---
-  # Applications, CLI tools, and desktop utilities go here.
   home.packages = with pkgs; [
     # Modern CLI Replacements
     zoxide
