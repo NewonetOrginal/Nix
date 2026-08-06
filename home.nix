@@ -7,6 +7,27 @@
 
   programs.home-manager.enable = true;
 
+  services.kanshi = {
+    enable = true;
+    settings = [
+      {
+        profile.name = "desktop";
+        profile.outputs = [
+          {
+            criteria = "DP-1";
+            mode = "2560x1440@200Hz";
+            position = "0,0";
+          }
+          {
+            criteria = "DP-2";
+            mode = "2560x1440@200Hz";
+            position = "2560,0";
+          }
+        ];
+      }
+    ];
+  };
+
   programs.firefox.enable = true;
 
   # Shell & Terminal
