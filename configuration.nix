@@ -155,7 +155,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
-    users."nixbtw" = import ./home.nix;
+    users."nixbtw" = ./home.nix;
   };
 
   system.stateVersion = "26.05";
