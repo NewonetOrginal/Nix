@@ -28,7 +28,10 @@
     ];
   };
 
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    configPath = ".mozilla/firefox";
+  };
 
   programs.waybar = {
     enable = true;
@@ -37,15 +40,31 @@
         layer = "top";
         position = "top";
         height = 28;
-        modules-left = [ "custom/nixicon" "river/tags" "mpris" ];
+        modules-left = [
+          "custom/nixicon"
+          "river/tags"
+          "mpris"
+        ];
         modules-center = [ "clock" ];
-        modules-right = [ "network" "pulseaudio" "cpu" "temperature" "custom/gpu" "memory" "tray" ];
+        modules-right = [
+          "network"
+          "pulseaudio"
+          "cpu"
+          "temperature"
+          "custom/gpu"
+          "memory"
+          "tray"
+        ];
 
         "pulseaudio" = {
           format = "{icon} {volume}%";
           format-muted = "󰝟 Muted";
           format-icons = {
-            default = [ "󰕿" "󰖀" "󰕾" ];
+            default = [
+              "󰕿"
+              "󰖀"
+              "󰕾"
+            ];
           };
         };
         "cpu" = {
@@ -59,7 +78,12 @@
         "temperature" = {
           critical-threshold = 80;
           format = "{icon} {temperatureC}C";
-          format-icons = [ "" "" "" "" ];
+          format-icons = [
+            ""
+            ""
+            ""
+            ""
+          ];
         };
         "memory" = {
           format = " {percentage}%";
@@ -75,7 +99,12 @@
         };
         "mpris" = {
           player = "playerctld";
-          ignored-players = [ "firefox" "discord" "chromium" "chrome" ];
+          ignored-players = [
+            "firefox"
+            "discord"
+            "chromium"
+            "chrome"
+          ];
           format = "{player_icon} <i>{artist} - {title}</i>";
           format-paused = "{status_icon} <i>{artist} - {title}</i>";
           player-icons = {
@@ -211,18 +240,18 @@
       background = "#131218";
 
       # Accents
-      color0  = "#000000";
-      color1  = "#df4661";
-      color2  = "#54d67f";
-      color3  = "#eea243";
-      color4  = "#3b68e5";
-      color5  = "#af70e8";
-      color6  = "#5ccfe6";
-      color7  = "#edeaff";
+      color0 = "#000000";
+      color1 = "#df4661";
+      color2 = "#54d67f";
+      color3 = "#eea243";
+      color4 = "#3b68e5";
+      color5 = "#af70e8";
+      color6 = "#5ccfe6";
+      color7 = "#edeaff";
 
       # Bright Variants
-      color8  = "#3f3a47";
-      color9  = "#f76881";
+      color8 = "#3f3a47";
+      color9 = "#f76881";
       color10 = "#7fff9f";
       color11 = "#ffc475";
       color12 = "#6085f2";
@@ -231,7 +260,6 @@
       color15 = "#ffffff";
     };
   };
-
 
   # --- USER PACKAGES ---
   home.packages = with pkgs; [
@@ -248,7 +276,7 @@
     btop
     fastfetch
     helix
-    nixfmt-rfc-style
+    nixfmt
     cava
     pastel
     rust-analyzer
