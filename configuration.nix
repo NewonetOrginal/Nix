@@ -38,8 +38,6 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
-    # Disable default lightdm greeter if you want to boot directly to TTY / River
-    displayManager.lightdm.enable = false;
   };
 
   hardware.nvidia = {
