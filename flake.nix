@@ -29,6 +29,7 @@
       home-manager,
       spicetify-nix,
       stylix,
+      chaotic,
       ...
     }@inputs:
     {
