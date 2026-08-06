@@ -279,6 +279,7 @@ in
 
     # Terminal Applications
     yazi
+    cbonsai
     btop
     fastfetch
     helix
