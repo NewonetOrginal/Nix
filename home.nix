@@ -1,5 +1,7 @@
-{ pkgs, config, ... }:
+{ config, pkgs, ... }:
+
 let
+  # Stylix color helpers
   c = config.lib.stylix.colors.withHashtag;
   raw = config.lib.stylix.colors;
 in
@@ -96,7 +98,8 @@ in
           };
         };
         "custom/gpu" = {
-          exec = ''nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | awk -F', ' '{u=$1; t=$2; u_col=(u>85?"#ff334b":(u>60?"#ffb300":"#00ff99")); t_col=(t>80?"#ff334b":(t>65?"#ffb300":"#5ce6ff")); printf "<span foreground=\"#ff71db\">󰢮</span> <span foreground=\"%s\">%d%%</span> <span foreground=\"%s\">%d°C</span>\n", u_col, u, t_col, t}' '';
+          # Dynamic status script using Stylix colors: base0E (purple), base0B (green), base0A (yellow), base08 (red)
+          exec = ''nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | awk -F', ' '{u=$1; t=$2; u_col=(u>85?"${c.base08}":(u>60?"${c.base0A}":"${c.base0B}")); t_col=(t>80?"${c.base08}":(t>65?"${c.base0A}":"${c.base0C}")); printf "<span foreground=\"${c.base0E}\">󰢮</span> <span foreground=\"%s\">%d%%</span> <span foreground=\"%s\">%d°C</span>\n", u_col, u, t_col, t}' '';
           interval = 2;
           format = "{}";
         };
@@ -139,10 +142,10 @@ in
       }
 
       window#waybar {
-          background-color: rgba(15, 16, 21, 0.60);
-          color: #e2e8f0;
+          background-color: rgba(${raw.base00-rgb-r}, ${raw.base00-rgb-g}, ${raw.base00-rgb-b}, 0.60);
+          color: ${c.base05};
           border-radius: 8px;
-          border: 1px solid rgba(51, 119, 255, 0.4);
+          border: 1px solid rgba(${raw.base0D-rgb-r}, ${raw.base0D-rgb-g}, ${raw.base0D-rgb-b}, 0.4);
       }
 
       #cpu,
@@ -161,58 +164,59 @@ in
       }
 
       #clock {
-          color: #00f0ff;
-          background-color: rgba(0, 240, 255, 0.1);
+          color: ${c.base0C};
+          background-color: rgba(${raw.base0C-rgb-r}, ${raw.base0C-rgb-g}, ${raw.base0C-rgb-b}, 0.1);
           border-radius: 4px;
       }
 
       #mpris,
       #cpu,
       #temperature {
-          color: #ff71db;
+          color: ${c.base0E};
       }
 
       #network,
       #memory {
-          color: #ffd180;
+          color: ${c.base0A};
       }
 
       #custom-nixicon,
       #tags button.focused,
       #pulseaudio {
-          color: #66ffb2;
+          color: ${c.base0B};
       }
 
       #tags button {
-          color: #525a6c;
+          color: ${c.base03};
           padding: 0 4px;
       }
 
       #tags button.focused {
-          background-color: rgba(102, 255, 178, 0.15);
+          background-color: rgba(${raw.base0B-rgb-r}, ${raw.base0B-rgb-g}, ${raw.base0B-rgb-b}, 0.15);
           border-radius: 4px;
       }
 
       #tags button.urgent {
-          color: #ff334b;
+          color: ${c.base08};
       }
 
       #tray {
-          color: #525a6c;
+          color: ${c.base03};
       }
 
       #cpu.warning,
       #memory.warning {
-          color: #ffd180;
+          color: ${c.base0A};
       }
 
       #cpu.critical,
       #temperature.critical,
       #memory.critical {
-          color: #ff334b;
+          color: ${c.base08};
       }
     '';
   };
+
   # Shell & Terminal
   programs.zsh = {
     enable = true;
@@ -239,26 +243,27 @@ in
       font_family = "DejaVuSansM Nerd Font";
       background_opacity = "0.6";
 
+      # Dynamic colors pulled directly from Stylix Base16 palette
       foreground = c.base05;
       background = c.base00;
 
       color0 = c.base00;
-      color1 = c.base08;
-      color2 = c.base0B;
-      color3 = c.base0A;
-      color4 = c.base0D;
-      color5 = c.base0E;
-      color6 = c.base0C;
-      color7 = c.base05;
+      color1 = c.base08; # Red
+      color2 = c.base0B; # Green
+      color3 = c.base0A; # Yellow
+      color4 = c.base0D; # Blue
+      color5 = c.base0E; # Magenta
+      color6 = c.base0C; # Cyan
+      color7 = c.base05; # Light Gray
 
-      color8 = c.base03;
+      color8 = c.base03; # Dark Gray
       color9 = c.base08;
       color10 = c.base0B;
       color11 = c.base0A;
       color12 = c.base0D;
       color13 = c.base0E;
       color14 = c.base0C;
-      color15 = c.base07;
+      color15 = c.base07; # White
     };
   };
 
