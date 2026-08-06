@@ -155,6 +155,7 @@
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
+    extraSpecialArgs = { inherit inputs; };
     users."nixbtw" = ./home.nix;
   };
 
