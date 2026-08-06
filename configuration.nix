@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   imports = [
@@ -9,7 +14,10 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   networking.hostName = "nixos";
   networking.networkmanager.enable = true;
@@ -66,9 +74,12 @@
   users.users."nixbtw" = {
     isNormalUser = true;
     description = "nixbtw";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     shell = pkgs.zsh;
-    packages = with pkgs; [];
+    packages = with pkgs; [ ];
   };
 
   # System-wide window manager configuration
@@ -89,7 +100,6 @@
     ];
   };
 
-  
   programs.zsh.enable = true;
 
   # --- SYSTEM PACKAGES ---
@@ -133,20 +143,22 @@
     VISUAL = "hx";
   };
 
-  programs.spicetify = let
-    spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-  in {
-    enable = true;
-    theme = spicePkgs.themes.starryNight;
-    enabledExtensions = with spicePkgs.extensions; [
-      adblockify
-      hidePodcasts
-      shuffle
-    ];
-    enabledCustomApps = with spicePkgs.apps; [
-      marketplace
-    ];
-  };
+  programs.spicetify =
+    let
+      spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+    in
+    {
+      enable = true;
+      theme = spicePkgs.themes.starryNight;
+      enabledExtensions = with spicePkgs.extensions; [
+        adblockify
+        hidePodcasts
+        shuffle
+      ];
+      enabledCustomApps = with spicePkgs.apps; [
+        marketplace
+      ];
+    };
 
   # Import Home Manager configuration module
   home-manager = {
