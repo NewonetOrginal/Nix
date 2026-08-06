@@ -38,7 +38,6 @@
   services.xserver = {
     enable = true;
     videoDrivers = [ "nvidia" ];
-    # Disable default lightdm greeter if you want to boot directly to TTY / River
     displayManager.lightdm.enable = false;
   };
 
@@ -90,11 +89,10 @@
     ];
   };
 
-  # System-level zsh shell support
+  
   programs.zsh.enable = true;
 
-  # --- SYSTEM PACKAGES ONLY ---
-  # Only low-level utilities, system libraries, compilers, and hardware helpers stay here.
+  # --- SYSTEM PACKAGES ---
   environment.systemPackages = with pkgs; [
     # Core system tools & build essentials
     wget
