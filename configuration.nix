@@ -13,7 +13,7 @@
   # Bootloader
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_cachyos-lto;
+  boot.kernelPackages = pkgs.linuxPackages_zen;
 
   nix.settings.experimental-features = [
     "nix-command"
@@ -102,6 +102,14 @@
   };
 
   programs.zsh.enable = true;
+
+  stylix = {
+    enable = true;
+    image = ~/Pictures/WallpapersFused.png;
+    targets.wallpaper.enable = false;
+    polarity = "dark";
+    autoEnable = false;
+  };
 
   # --- SYSTEM PACKAGES ---
   environment.systemPackages = with pkgs; [

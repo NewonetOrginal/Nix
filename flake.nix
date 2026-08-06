@@ -17,9 +17,6 @@
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    chaotic = {
-      url = "github:chaotic-cx/nyx/nyxpkgs-unstable";
-    };
   };
 
   outputs =
@@ -29,7 +26,6 @@
       home-manager,
       spicetify-nix,
       stylix,
-      chaotic,
       ...
     }@inputs:
     {
@@ -38,7 +34,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           stylix.nixosModules.stylix
-          chaotic.nixosModules.default
           spicetify-nix.nixosModules.default
           home-manager.nixosModules.home-manager
           ./configuration.nix
