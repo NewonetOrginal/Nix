@@ -109,7 +109,7 @@
 
   stylix = {
     enable = true;
-    image = ./WallpapersFused.png;
+    image = ./wallhaven-28gdlg_5000x1795.png;
     polarity = "dark";
     autoEnable = false;
   };
