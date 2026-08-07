@@ -241,7 +241,7 @@ in
     enable = true;
     settings = {
       font_family = "DejaVuSansM Nerd Font";
-      background_opacity = "0.6";
+      background_opacity = "0.85";
 
       # Dynamic colors pulled directly from Stylix Base16 palette
       foreground = c.base05;
