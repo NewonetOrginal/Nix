@@ -310,5 +310,17 @@ in
       git push
       sudo nixos-rebuild switch --flake .
     '')
+    (writeShellScriptBin "screenshot" ''
+      export PATH="${
+        pkgs.lib.makeBinPath [
+          pkgs.wayfreeze
+          pkgs.slurp
+          pkgs.grim
+          pkgs.wl-clipboard
+          pkgs.procps
+        ]
+      }:$PATH"
+      wayfreeze --after-freeze-cmd 'GEOM=$(slurp); [ -n "$GEOM" ] && FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$GEOM" "$FILE" && wl-copy < "$FILE"; pkill wayfreeze'
+    '')
   ];
 }

@@ -128,6 +128,7 @@
 
     # Wayland hardware/display helpers
     grim
+    wayfreeze
     slurp
     wl-clipboard
     kanshi
