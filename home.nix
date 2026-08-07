@@ -295,6 +295,7 @@ in
 
     # User Applications & Launchers
     filezilla
+    gimp
     prismlauncher
     beammp-launcher
     playerctl
