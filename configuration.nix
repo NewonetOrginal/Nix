@@ -109,7 +109,7 @@
 
   stylix = {
     enable = true;
-    image = ./2026-08-07_14-07-46.png;
+    image = ./wallhaven-28gdlg_5000x1795.png;
     polarity = "dark";
     autoEnable = false;
   };
