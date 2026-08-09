@@ -197,7 +197,7 @@
         button-active = c.base0D;
         button-disabled = c.base03;
         tab-active = c.base02;
-        notification = c.basse01;
+        notification = c.base01;
         notification-error = c.base08;
       };
       enabledExtensions = with spicePkgs.extensions; [
