@@ -247,7 +247,7 @@ in
       foreground = c.base05;
       background = c.base00;
       selection_foreground = c.base05;
-      selection_background = c.base02;
+      selection_background = c.base0D;
 
       color0 = c.base00;
       color1 = c.base08; # Red
