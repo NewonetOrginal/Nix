@@ -185,7 +185,7 @@
       theme = spicePkgs.themes.starryNight;
       colorScheme = "custom";
       customColorScheme = {
-        text = = c.base05;
+        text = c.base05;
         subtext = c.base04;
         main = c.base00;
         sidebar = c.base00;
@@ -193,8 +193,8 @@
         card = c.base01;
         shadow = "000000";
         selected-row = c.base02;
-        button = c.base0D; 
-        button-active = c.base0D; 
+        button = c.base0D;
+        button-active = c.base0D;
         button-disabled = c.base03;
         tab-active = c.base02;
         notification = c.basse01;
