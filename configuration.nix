@@ -178,26 +178,27 @@
   programs.spicetify =
     let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+      c = cpnfig.lib.stylix.colors;
     in
     {
       enable = true;
       theme = spicePkgs.themes.starryNight;
       colorScheme = "custom";
       customColorScheme = {
-        text = "c9d1e6"; # base05
-        subtext = "7b8dae"; # base04
-        main = "0f121d"; # base00
-        sidebar = "12131c"; # base00
-        player = "181e2e"; # base01
-        card = "181e2e"; # base01
+        text = = c.base05;
+        subtext = c.base04;
+        main = c.base00;
+        sidebar = c.base00;
+        player = c.base01;
+        card = c.base01;
         shadow = "000000";
-        selected-row = "253047"; # base02
-        button = "3c61dc"; # base0D (Cobalt Blue play button)
-        button-active = "3c61dc";
-        button-disabled = "4c5b7d"; # base03
-        tab-active = "253047";
-        notification = "181e2e";
-        notification-error = "dc3236"; # base08
+        selected-row = c.base02;
+        button = c.base0D; 
+        button-active = c.base0D; 
+        button-disabled = c.base03;
+        tab-active = c.base02;
+        notification = c.basse01;
+        notification-error = c.base08;
       };
       enabledExtensions = with spicePkgs.extensions; [
         adblockify

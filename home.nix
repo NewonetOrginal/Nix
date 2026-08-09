@@ -356,7 +356,7 @@ in
         };
         "variable" = {
           fg = c.base05;
-        }; # Red
+        };
         "variable.builtin" = {
           fg = c.base0E;
         }; # Purple
@@ -370,6 +370,12 @@ in
           fg = c.base0E;
         }; # Purple
         "operator" = {
+          fg = c.base08;
+        };
+        "punctuation.bracket" = {
+          fg = c.base08;
+        };
+        "punctuation.delimmiter" = {
           fg = c.base08;
         };
         "type" = {
