@@ -4,6 +4,7 @@ let
   # Stylix color helpers
   c = config.lib.stylix.colors.withHashtag;
   raw = config.lib.stylix.colors;
+  inherit (config.lib.formats.rasi) mkLiteral;
 in
 {
   home.username = "nixbtw";
