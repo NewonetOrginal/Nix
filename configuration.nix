@@ -109,7 +109,7 @@
 
   stylix = {
     enable = true;
-    image = ./wallpaper4.png;
+    image = ./wallpaper_half_0.png;
     polarity = "dark";
     autoEnable = false;
   };
