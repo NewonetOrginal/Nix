@@ -112,9 +112,6 @@
     image = ./WallpapersFused.png;
     polarity = "dark";
     autoEnable = false;
-    targets = {
-      helix.enable = true;
-    };
     base16Scheme = {
       base00 = "12131c";
       base01 = "191c28";
