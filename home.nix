@@ -279,7 +279,7 @@ in
           name = "nix";
           auto-format = true;
           formatter = {
-            command = command = "nixfmt";
+            command = "nixfmt";
           };
         }
       ];
