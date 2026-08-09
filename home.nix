@@ -429,14 +429,14 @@ in
 
     theme = {
       "*" = {
-        bg = mkLiteral "#${c.base00}bd"; # ~74% transparent
+        bg = mkLiteral "#${c.base00}bd";
         bg-alt = mkLiteral "#${c.base01}80";
         fg = mkLiteral "#${c.base05}";
         fg-alt = mkLiteral "#${c.base04}";
 
-        accent-blue = mkLiteral "#${c.base0D}"; # Cobalt Blue
-        accent-purple = mkLiteral "#${c.base0E}"; # Purple
-        accent-cyan = mkLiteral "#${c.base0C}"; # Cyan
+        accent-blue = mkLiteral "#${c.base0D}";
+        accent-purple = mkLiteral "#${c.base0E}";
+        accent-cyan = mkLiteral "#${c.base0C}";
         border-col = mkLiteral "#${c.base0E}";
 
         background-color = mkLiteral "transparent";
@@ -446,16 +446,16 @@ in
       };
 
       "window" = {
-        transparency = "real";
+        transparency = mkLiteral "\"real\""; # Needs escaped quotes for rofi strings
         location = mkLiteral "center";
         anchor = mkLiteral "center";
         width = mkLiteral "600px";
-        enabled = true;
+        enabled = true; # Booleans stay native Nix booleans
         border = mkLiteral "2px solid";
         border-color = mkLiteral "@border-col";
         border-radius = mkLiteral "0px";
         background-color = mkLiteral "@bg";
-        cursor = "default";
+        cursor = mkLiteral "default";
       };
 
       "mainbox" = {
@@ -487,7 +487,7 @@ in
       "prompt" = {
         enabled = true;
         background-color = mkLiteral "transparent";
-        text-color = mkLiteral "@accent-cyan";
+        text-color = mkLiteral "@accent-blue";
       };
 
       "entry" = {
@@ -495,7 +495,7 @@ in
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "inherit";
         cursor = mkLiteral "text";
-        placeholder = "Search...";
+        placeholder = "Search..."; # Raw strings work fine for input placeholders
         placeholder-color = mkLiteral "@fg-alt";
       };
 
@@ -604,6 +604,9 @@ in
         ]
       }:$PATH"
       wayfreeze --after-freeze-cmd 'GEOM=$(slurp); [ -n "$GEOM" ] && FILE=~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png && grim -g "$GEOM" "$FILE" && wl-copy < "$FILE"; pkill wayfreeze'
+    '')
+    (writeShellScriptBin "check" ''
+      sudo nixos-rebuild dry-build --flake /etc/nixos
     '')
   ];
 }
