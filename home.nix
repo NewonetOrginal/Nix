@@ -530,7 +530,7 @@ in
 
       "element selected.normal, element selected.active" = {
         background-color = mkLiteral "@accent-blue";
-        text-color = mkLiteral "ffffff";
+        text-color = mkLiteral "@bg";
       };
 
       "element-icon" = {
