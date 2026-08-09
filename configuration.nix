@@ -112,6 +112,24 @@
     image = ./WallpapersFused.png;
     polarity = "dark";
     autoEnable = false;
+    base16Scheme = {
+      base00 = "12131c";
+      base01 = "191c28";
+      base02 = "212638";
+      base03 = "5a627a";
+      base04 = "8b95b0";
+      base05 = "c9d1e6";
+      base06 = "e1e6f5";
+      base07 = "f0f3fa";
+      base08 = "dc3236";
+      base09 = "e0a855";
+      base0A = "ebd07d";
+      base0B = "5bb98c";
+      base0C = "64b5f6";
+      base0D = "3c61dc";
+      base0E = "9d6be8";
+      base0F = "d46892";
+    };
   };
 
   # --- SYSTEM PACKAGES ---
