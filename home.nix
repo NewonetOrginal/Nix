@@ -417,6 +417,7 @@ in
   programs.rofi = {
     enable = true;
     extraConfig = {
+      theme = "custom";
       modi = "drun,run,filebrowser,window";
       show-icons = true;
       display-drun = " ";
@@ -573,7 +574,6 @@ in
     opencode
 
     # Desktop & Wayland Setup
-    rofi
     awww
 
     # User Applications & Launchers
