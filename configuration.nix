@@ -201,7 +201,6 @@
         notification-error = c.base08;
       };
       enabledExtensions = with spicePkgs.extensions; [
-        adblockify
         hidePodcasts
         shuffle
       ];

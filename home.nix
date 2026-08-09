@@ -417,7 +417,6 @@ in
   programs.rofi = {
     enable = true;
     extraConfig = {
-      theme = "custom";
       modi = "drun,run,filebrowser,window";
       show-icons = true;
       display-drun = " ";
@@ -447,11 +446,11 @@ in
       };
 
       "window" = {
-        transparency = mkLiteral "\"real\""; # Needs escaped quotes for rofi strings
+        transparency = mkLiteral "\"real\"";
         location = mkLiteral "center";
         anchor = mkLiteral "center";
         width = mkLiteral "600px";
-        enabled = true; # Booleans stay native Nix booleans
+        enabled = true;
         border = mkLiteral "2px solid";
         border-color = mkLiteral "@border-col";
         border-radius = mkLiteral "0px";
@@ -496,7 +495,7 @@ in
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "inherit";
         cursor = mkLiteral "text";
-        placeholder = "Search..."; # Raw strings work fine for input placeholders
+        placeholder = "Search...";
         placeholder-color = mkLiteral "@fg-alt";
       };
 
