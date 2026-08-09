@@ -223,9 +223,6 @@ in
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initContent = ''
-      fastfetch
-    '';
   };
 
   programs.starship.enable = true;
