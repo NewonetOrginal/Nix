@@ -269,6 +269,135 @@ in
     };
   };
 
+  programs.helix = {
+    enable = true;
+
+    settings = {
+      theme = "custom";
+    };
+
+    themes = {
+      custom = {
+        "ui.background" = {
+          bg = c.base00;
+        };
+        "ui.text" = {
+          fg = c.base05;
+        };
+        "ui.text.focus" = {
+          fg = c.base06;
+          modifiers = [ "bold" ];
+        };
+        "ui.cursor" = {
+          fg = c.base00;
+          bg = c.base05;
+        };
+        "ui.cursor.match" = {
+          fg = c.base00;
+          bg = c.base0D;
+        };
+        "ui.selection" = {
+          bg = c.base02;
+        };
+        "ui.selection.primary" = {
+          bg = c.base02;
+        };
+        "ui.linenr" = {
+          fg = c.base03;
+        };
+        "ui.linenr.selected" = {
+          fg = c.base05;
+          modifiers = [ "bold" ];
+        };
+        "ui.statusline" = {
+          fg = c.base04;
+          bg = c.base01;
+        };
+        "ui.statusline.inactive" = {
+          fg = c.base03;
+          bg = c.base01;
+        };
+        "ui.popup" = {
+          bg = c.base01;
+          fg = c.base05;
+        };
+        "ui.window" = {
+          fg = c.base02;
+        };
+        "ui.help" = {
+          bg = c.base01;
+          fg = c.base05;
+        };
+
+        "comment" = {
+          fg = c.base03;
+          modifiers = [ "italic" ];
+        };
+        "string" = {
+          fg = c.base0B;
+        }; # Success / Green
+        "constant" = {
+          fg = c.base09;
+        }; # Orange / Warning
+        "constant.numeric" = {
+          fg = c.base09;
+        };
+        "constant.boolean" = {
+          fg = c.base09;
+        };
+        "variable" = {
+          fg = c.base08;
+        }; # Red
+        "variable.builtin" = {
+          fg = c.base0E;
+        }; # Purple
+        "function" = {
+          fg = c.base0D;
+        }; # Cobalt Blue
+        "function.macro" = {
+          fg = c.base0C;
+        }; # Cyan
+        "keyword" = {
+          fg = c.base0E;
+        }; # Purple
+        "operator" = {
+          fg = c.base05;
+        };
+        "type" = {
+          fg = c.base0A;
+        }; # Yellow
+        "constructor" = {
+          fg = c.base0D;
+        };
+
+        "warning" = {
+          fg = c.base09;
+        };
+        "error" = {
+          fg = c.base08;
+        };
+        "info" = {
+          fg = c.base0C;
+        };
+        "hint" = {
+          fg = c.base03;
+        };
+        "diagnostic.error" = {
+          underline = {
+            color = c.base08;
+            style = "curl";
+          };
+        };
+        "diagnostic.warning" = {
+          underline = {
+            color = c.base09;
+            style = "curl";
+          };
+        };
+      };
+    };
+  };
+
   # --- USER PACKAGES ---
   home.packages = with pkgs; [
     # Modern CLI Replacements
@@ -284,7 +413,6 @@ in
     cbonsai
     btop
     fastfetch
-    helix
     nixfmt
     cava
     pastel
