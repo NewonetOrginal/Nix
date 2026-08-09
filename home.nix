@@ -246,6 +246,8 @@ in
       # Dynamic colors pulled directly from Stylix Base16 palette
       foreground = c.base05;
       background = c.base00;
+      selection_foreground = c.base05;
+      selection_background = c.base02;
 
       color0 = c.base00;
       color1 = c.base08; # Red
