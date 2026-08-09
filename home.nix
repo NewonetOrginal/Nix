@@ -273,6 +273,18 @@ in
       theme = "custom";
     };
 
+    languages = {
+      language = [
+        {
+          name = "nix";
+          auto-format = true;
+          formatter = {
+            command = lib.getExe pkgs.nixfmt-rfc-style;
+          };
+        }
+      ];
+    };
+
     themes = {
       custom = {
         "ui.background" = {
@@ -343,7 +355,7 @@ in
           fg = c.base09;
         };
         "variable" = {
-          fg = c.base08;
+          fg = c.base05;
         }; # Red
         "variable.builtin" = {
           fg = c.base0E;
@@ -358,7 +370,7 @@ in
           fg = c.base0E;
         }; # Purple
         "operator" = {
-          fg = c.base05;
+          fg = c.base08;
         };
         "type" = {
           fg = c.base0A;
