@@ -306,10 +306,10 @@ in
           bg = c.base0D;
         };
         "ui.selection" = {
-          bg = c.base02;
+          bg = c.base0D;
         };
         "ui.selection.primary" = {
-          bg = c.base02;
+          bg = c.base0D;
         };
         "ui.linenr" = {
           fg = c.base03;

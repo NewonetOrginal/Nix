@@ -109,7 +109,7 @@
 
   stylix = {
     enable = true;
-    image = ./WallpapersFused.png;
+    image = ./Wallpapers/WallpapersFused.png;
     polarity = "dark";
     autoEnable = false;
     base16Scheme = {
