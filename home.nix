@@ -413,6 +413,143 @@ in
     };
   };
 
+  programs.rofi = {
+    enable = true;
+    extraConfig = {
+      modi = "drun,run,filebrowser,window";
+      show-icons = true;
+      display-drun = " ";
+      display-run = " ";
+      display-filebrowser = " ";
+      display-window = " ";
+      drun-display-format = "{name}";
+      font = "DejaVuSansMono Nerd Font 10";
+    };
+
+    theme = {
+      "*" = {
+        bg = mkLiteral "#${c.base00}bd"; # ~74% transparent
+        bg-alt = mkLiteral "#${c.base01}80";
+        fg = mkLiteral "#${c.base05}";
+        fg-alt = mkLiteral "#${c.base04}";
+
+        accent-blue = mkLiteral "#${c.base0D}"; # Cobalt Blue
+        accent-purple = mkLiteral "#${c.base0E}"; # Purple
+        accent-cyan = mkLiteral "#${c.base0C}"; # Cyan
+        border-col = mkLiteral "#${c.base0E}";
+
+        background-color = mkLiteral "transparent";
+        text-color = mkLiteral "@fg";
+        margin = mkLiteral "0";
+        padding = mkLiteral "0";
+      };
+
+      "window" = {
+        transparency = "real";
+        location = mkLiteral "center";
+        anchor = mkLiteral "center";
+        width = mkLiteral "600px";
+        enabled = true;
+        border = mkLiteral "2px solid";
+        border-color = mkLiteral "@border-col";
+        border-radius = mkLiteral "0px";
+        background-color = mkLiteral "@bg";
+        cursor = "default";
+      };
+
+      "mainbox" = {
+        enabled = true;
+        spacing = mkLiteral "15px";
+        padding = mkLiteral "20px";
+        orientation = mkLiteral "vertical";
+        children = map mkLiteral [
+          "inputbar"
+          "listview"
+        ];
+      };
+
+      "inputbar" = {
+        enabled = true;
+        spacing = mkLiteral "10px";
+        padding = mkLiteral "10px 15px";
+        border = mkLiteral "1px solid";
+        border-color = mkLiteral "#${c.base02}";
+        border-radius = mkLiteral "0px";
+        background-color = mkLiteral "@bg-alt";
+        text-color = mkLiteral "@fg";
+        children = map mkLiteral [
+          "prompt"
+          "entry"
+        ];
+      };
+
+      "prompt" = {
+        enabled = true;
+        background-color = mkLiteral "transparent";
+        text-color = mkLiteral "@accent-cyan";
+      };
+
+      "entry" = {
+        enabled = true;
+        background-color = mkLiteral "transparent";
+        text-color = mkLiteral "inherit";
+        cursor = mkLiteral "text";
+        placeholder = "Search...";
+        placeholder-color = mkLiteral "@fg-alt";
+      };
+
+      "listview" = {
+        enabled = true;
+        columns = 1;
+        lines = 7;
+        cycle = true;
+        dynamic = true;
+        scrollbar = false;
+        layout = mkLiteral "vertical";
+        reverse = false;
+        fixed-height = true;
+        fixed-columns = true;
+        spacing = mkLiteral "4px";
+      };
+
+      "element" = {
+        enabled = true;
+        spacing = mkLiteral "10px";
+        padding = mkLiteral "8px 12px";
+        border-radius = mkLiteral "0px";
+        background-color = mkLiteral "transparent";
+        text-color = mkLiteral "@fg";
+        cursor = mkLiteral "pointer";
+      };
+
+      "element normal.normal, element alternate.normal" = {
+        background-color = mkLiteral "transparent";
+        text-color = mkLiteral "@fg";
+      };
+
+      "element selected.normal, element selected.active" = {
+        background-color = mkLiteral "@accent-blue";
+        text-color = mkLiteral "#ffffff";
+      };
+
+      "element-icon" = {
+        background-color = mkLiteral "transparent";
+        text-color = mkLiteral "inherit";
+        size = mkLiteral "24px";
+        cursor = mkLiteral "inherit";
+      };
+
+      "element-text" = {
+        background-color = mkLiteral "transparent";
+        text-color = mkLiteral "inherit";
+        highlight = mkLiteral "inherit";
+        cursor = mkLiteral "inherit";
+        vertical-align = mkLiteral "0.5";
+        horizontal-align = mkLiteral "0.0";
+      };
+    };
+  };
+
   # --- USER PACKAGES ---
   home.packages = with pkgs; [
     # Modern CLI Replacements
