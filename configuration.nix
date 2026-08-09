@@ -178,7 +178,7 @@
   programs.spicetify =
     let
       spicePkgs = inputs.spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
-      c = cpnfig.lib.stylix.colors;
+      c = config.lib.stylix.colors;
     in
     {
       enable = true;
