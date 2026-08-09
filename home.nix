@@ -429,15 +429,15 @@ in
 
     theme = {
       "*" = {
-        bg = mkLiteral "#${c.base00}bd";
-        bg-alt = mkLiteral "#${c.base01}80";
-        fg = mkLiteral "#${c.base05}";
-        fg-alt = mkLiteral "#${c.base04}";
+        bg = mkLiteral "${c.base00}bd";
+        bg-alt = mkLiteral "${c.base01}80";
+        fg = mkLiteral "${c.base05}";
+        fg-alt = mkLiteral "${c.base04}";
 
-        accent-blue = mkLiteral "#${c.base0D}";
-        accent-purple = mkLiteral "#${c.base0E}";
-        accent-cyan = mkLiteral "#${c.base0C}";
-        border-col = mkLiteral "#${c.base0E}";
+        accent-blue = mkLiteral "${c.base0D}";
+        accent-purple = mkLiteral "${c.base0E}";
+        accent-cyan = mkLiteral "${c.base0C}";
+        border-col = mkLiteral "${c.base0E}";
 
         background-color = mkLiteral "transparent";
         text-color = mkLiteral "@fg";
@@ -474,7 +474,7 @@ in
         spacing = mkLiteral "10px";
         padding = mkLiteral "10px 15px";
         border = mkLiteral "1px solid";
-        border-color = mkLiteral "#${c.base02}";
+        border-color = mkLiteral "${c.base02}";
         border-radius = mkLiteral "0px";
         background-color = mkLiteral "@bg-alt";
         text-color = mkLiteral "@fg";
@@ -530,7 +530,7 @@ in
 
       "element selected.normal, element selected.active" = {
         background-color = mkLiteral "@accent-blue";
-        text-color = mkLiteral "#ffffff";
+        text-color = mkLiteral "ffffff";
       };
 
       "element-icon" = {
