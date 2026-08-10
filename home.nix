@@ -291,6 +291,8 @@ in
 
     themes = {
       custom = {
+        inherits = "base16_default";
+
         "ui.background" = {
           bg = c.base00;
         };
