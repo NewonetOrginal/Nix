@@ -145,12 +145,10 @@
     unrar
 
     # Wayland hardware/display helpers
-    grim
-    wayfreeze
-    slurp
     wl-clipboard
     kanshi
     wiremix
+    wayfreeze
   ];
 
   fonts.packages = with pkgs; [

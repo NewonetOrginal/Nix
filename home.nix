@@ -608,10 +608,8 @@ in
     (writeShellScriptBin "screenshot" ''
       export PATH="${
         pkgs.lib.makeBinPath [
-          pkgs.wayfreeze
           pkgs.slurp
           pkgs.grim
-          pkgs.wl-clipboard
           pkgs.procps
         ]
       }:$PATH"
