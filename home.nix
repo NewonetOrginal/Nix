@@ -226,7 +226,7 @@ in
     syntaxHighlighting.enable = true;
     initContent = ''
       autoload -Uz compinit
-      if [[ -n ~/.zcompdump(#qN.m+1)]]; then
+      if [[ -n ~/.zcompdump(#qN.m+1)]] then
         compinit
       else
         compinit -C
