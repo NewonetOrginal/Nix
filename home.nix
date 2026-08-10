@@ -305,6 +305,10 @@ in
           fg = c.base00;
           bg = c.base05;
         };
+        "ui.cursor.secondary" = {
+          fg = c.base08;
+          bg = c.base05;
+        };
         "ui.cursor.match" = {
           fg = c.base00;
           bg = c.base0D;
@@ -340,6 +344,9 @@ in
         "ui.help" = {
           bg = c.base01;
           fg = c.base05;
+        };
+        "ui.highlight" = {
+          bg = c.base02;
         };
 
         "comment" = {
