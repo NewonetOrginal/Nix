@@ -221,9 +221,17 @@ in
   # Shell & Terminal
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
+    enableCompletion = false;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
+    initContent = ''
+      autoload -Uz compinit
+      if [[ -n ~/.zcompdump(#qN.m+1)]]; then
+        compinit
+      else
+        compinit -C
+      fi
+    '';
   };
 
   programs.starship.enable = true;
@@ -563,9 +571,6 @@ in
 
     # Terminal Applications
     alacritty
-    ghostty
-    foot
-    hyperfine
     yazi
     cbonsai
     btop
