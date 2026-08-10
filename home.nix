@@ -562,6 +562,10 @@ in
     dust
 
     # Terminal Applications
+    alacritty
+    ghostty
+    foot
+    hyperfine
     yazi
     cbonsai
     btop
