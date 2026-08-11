@@ -99,7 +99,6 @@ in
           };
         };
         "custom/gpu" = {
-          # Dynamic status script using Stylix colors: base0E (purple), base0B (green), base0A (yellow), base08 (red)
           exec = ''nvidia-smi --query-gpu=utilization.gpu,temperature.gpu --format=csv,noheader,nounits | awk -F', ' '{u=$1; t=$2; u_col=(u>85?"${c.base08}":(u>60?"${c.base0A}":"${c.base0B}")); t_col=(t>80?"${c.base08}":(t>65?"${c.base0A}":"${c.base0C}")); printf "<span foreground=\"${c.base0E}\">󰢮</span> <span foreground=\"%s\">%d%%</span> <span foreground=\"%s\">%d°C</span>\n", u_col, u, t_col, t}' '';
           interval = 2;
           format = "{}";
@@ -244,7 +243,6 @@ in
       font_family = "DejaVuSansM Nerd Font";
       background_opacity = "0.85";
 
-      # Dynamic colors pulled directly from Stylix Base16 palette
       foreground = c.base05;
       background = c.base00;
       selection_foreground = c.base05;
