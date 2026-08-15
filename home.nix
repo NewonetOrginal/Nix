@@ -588,6 +588,7 @@ in
 
     # User Applications & Launchers
     filezilla
+    qbittorrent
     gimp
     prismlauncher
     beammp-launcher
