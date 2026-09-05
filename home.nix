@@ -593,6 +593,7 @@ in
     prismlauncher
     beammp-launcher
     playerctl
+    rpcs3
 
     # Custom Commands
     (writeShellScriptBin "rebuild" ''
