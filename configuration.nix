@@ -64,6 +64,8 @@
     variant = "";
   };
 
+  security.rtkit.enable = true;
+
   # Wayland Portal integration
   xdg.portal = {
     enable = true;
@@ -77,18 +79,19 @@
         };
       };
     };
-    extraPortals = [
-      pkgs.xdg-desktop-portal-gtk
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.common.default = [
+      "wlr"
+      "gtk"
     ];
-    config = {
-      common = {
-        default = [
-          "wlr"
-          "gtk"
-        ];
-      };
+  };
+
+  systemd.user.services.xdg-desktop-portal = {
+    overrideStrategy = "asDropIn";
+    unitConfig = {
+      Requisite = [ ];
+      PartOf = [ ];
     };
-    xdgOpenUsePortal = true;
   };
 
   services.pipewire = {
