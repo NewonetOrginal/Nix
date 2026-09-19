@@ -67,19 +67,28 @@
   # Wayland Portal integration
   xdg.portal = {
     enable = true;
+    wlr = {
+      enable = true;
+      settings = {
+        screencast = {
+          max_fps = 60;
+          chooser_type = "simple";
+          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+        };
+      };
+    };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
-      pkgs.xdg-desktop-portal-gnome
     ];
     config = {
       common = {
-        default = [ "gtk" ];
-        "org.freedesktop.impl.portal.ScreenCast" = [
-          "gnome"
+        default = [
+          "wlr"
           "gtk"
         ];
       };
     };
+    xdgOpenUsePortal = true;
   };
 
   services.pipewire = {
