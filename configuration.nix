@@ -87,7 +87,7 @@
   };
 
   systemd.user.services.xdg-desktop-portal = {
-    overrideStrategy = "asDropIn";
+    overrideStrategy = "asDropin";
     unitConfig = {
       Requisite = [ ];
       PartOf = [ ];
