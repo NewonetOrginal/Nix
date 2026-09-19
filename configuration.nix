@@ -67,7 +67,15 @@
   # Wayland Portal integration
   xdg.portal = {
     enable = true;
-    wlr.enable = true;
+    wlr = {
+      enable = true;
+      settings = {
+        screencast = {
+          max_fps = 60;
+          chooser_type = "simple";
+          chooser_cmd = "${pkgs.slurp}/bin/slurp -f %o -or";
+        };
+    };
     extraPortals = [
       pkgs.xdg-desktop-portal-gtk
       pkgs.xdg-desktop-portal-wlr
@@ -155,6 +163,7 @@
     openssl.dev
     _7zz
     unrar
+    slurp
 
     # Wayland hardware/display helpers
     wl-clipboard
