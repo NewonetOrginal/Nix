@@ -23,7 +23,7 @@ in
             criteria = "DP-1";
             mode = "2560x1440@200Hz";
             position = "0,0";
-            transform = "90";
+            transform = "270";
           }
           {
             criteria = "DP-2";
