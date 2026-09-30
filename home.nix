@@ -23,11 +23,19 @@ in
             criteria = "DP-1";
             mode = "2560x1440@200Hz";
             position = "0,0";
+            transform = "90";
           }
           {
             criteria = "DP-2";
             mode = "2560x1440@200Hz";
-            position = "2560,0";
+            position = "1440,0";
+            transform = "normal";
+          }
+          {
+            criteria = "HDMI-A-2";
+            mode = "2560x1440@143.999Hz";
+            position = "4000,0";
+            transform = "normal";
           }
         ];
       }
