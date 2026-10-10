@@ -31,12 +31,12 @@ in
             position = "1440,0";
             transform = "normal";
           }
-          # {
-          #   criteria = "HDMI-A-2";
-          #   mode = "2560x1440@143.999Hz";
-          #   position = "4000,0";
-          #   transform = "normal";
-          # }
+          {
+            criteria = "HDMI-A-2";
+            mode = "2560x1440@143.999Hz";
+            position = "4000,0";
+            transform = "normal";
+          }
         ];
       }
     ];
