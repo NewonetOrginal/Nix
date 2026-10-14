@@ -602,6 +602,7 @@ in
     beammp-launcher
     playerctl
     rpcs3
+    freecad
 
     # Custom Commands
     (writeShellScriptBin "rebuild" ''
