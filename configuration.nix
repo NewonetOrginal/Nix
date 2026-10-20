@@ -139,6 +139,8 @@
 
   programs.zsh.enable = true;
 
+  programs.nix-ld.enable = true;
+
   stylix = {
     enable = true;
     image = ./Wallpapers/WallpapersFused.png;
