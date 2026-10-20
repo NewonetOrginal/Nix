@@ -603,6 +603,7 @@ in
     playerctl
     rpcs3
     freecad
+    orca-slicer
 
     # Custom Commands
     (writeShellScriptBin "rebuild" ''
