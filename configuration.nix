@@ -131,7 +131,7 @@
   services.flatpak.enable = true;
 
   programs.steam = {
-    enable = true;
+    enable = false;
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
@@ -145,7 +145,7 @@
     enable = true;
     image = ./Wallpapers/WallpapersFused.png;
     polarity = "dark";
-    autoEnable = false;
+    autoEnable = true;
     base16Scheme = {
       base00 = "12131c";
       base01 = "191c28";
