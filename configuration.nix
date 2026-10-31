@@ -145,7 +145,8 @@
     enable = true;
     image = ./Wallpapers/WallpapersFused.png;
     polarity = "dark";
-    autoEnable = true;
+    autoEnable = false;
+    targets.gtk.enable = true;
     base16Scheme = {
       base00 = "12131c";
       base01 = "191c28";
