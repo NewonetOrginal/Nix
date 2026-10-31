@@ -131,7 +131,7 @@
   services.flatpak.enable = true;
 
   programs.steam = {
-    enable = false;
+    enable = true;
     extraCompatPackages = with pkgs; [
       proton-ge-bin
     ];
