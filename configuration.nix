@@ -170,6 +170,9 @@
   # --- SYSTEM PACKAGES ---
   environment.systemPackages = with pkgs; [
     # Core system tools & build essentials
+    qemu
+    OVMF
+    gnumake
     wget
     gcc
     rustup
