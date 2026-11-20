@@ -589,7 +589,7 @@ in
     cava
     pastel
     rust-analyzer
-    opencode
+    inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode2
 
     # Desktop & Wayland Setup
     awww
