@@ -52,6 +52,16 @@ in
     configPath = ".mozilla/firefox";
   };
 
+  programs.mpv = {
+    enable = true;
+    scripts = [ pkgs.mpvScripts.mpris ];
+    config = {
+      audio-display = "no";
+      gapless-audio = "yes";
+      volume = 100;
+    };
+  };
+
   programs.waybar = {
     enable = true;
     settings = {
