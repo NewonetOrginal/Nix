@@ -619,6 +619,7 @@ in
     rpcs3
     freecad
     orca-slicer
+    chromium
 
     # Custom Commands
     (writeShellScriptBin "rebuild" ''
