@@ -31,9 +31,41 @@
       stylix,
       ...
     }@inputs:
+    let
+      system = "x86_64-linux";
+      pkgs = nixpkgs.legacyPackages.${system};
+
+      toktrack = pkgs.stdenv.mkDerivation rec {
+        pname = "toktrack";
+        version = "2.18.0";
+
+        src = pkgs.fetchurl {
+          url = "https://github.com/mag123c/toktrack/releases/download/v${version}/toktrack-linux-musl-x64";
+          hash = "sha256-WM4t+E8HUtR51brHTTnYpIe+fMtWSfjaOCxTyCc8CP8=";
+        };
+
+        dontUnpack = true;
+
+        installPhase = ''
+          runHook preInstall
+          install -Dm755 $src $out/bin/toktrack
+          runHook postInstall
+        '';
+
+        meta = with pkgs.lib; {
+          description = "Ultra-fast token and cost tracker for LLM CLI usage";
+          homepage = "https://github.com/mag123c/toktrack";
+          license = licenses.mit;
+          mainProgram = "toktrack";
+          platforms = [ "x86_64-linux" ];
+        };
+      };
+    in
     {
+      packages.${system}.toktrack = toktrack;
+
       nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
-        system = "x86_64-linux";
+        system = system;
         specialArgs = { inherit inputs; };
         modules = [
           stylix.nixosModules.stylix

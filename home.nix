@@ -18,6 +18,63 @@ in
 
   programs.home-manager.enable = true;
 
+  xdg.configFile."opencode/plugins/toktrack/tui.tsx".text = ''
+    import { Plugin } from "@opencode/plugin/tui"
+    import { createSignal } from "solid-js"
+
+    const pad = (n: number) => String(n).padStart(2, "0")
+
+    const compact = (n: number) => {
+      if (n >= 1_000_000) return (n / 1_000_000).toFixed(1) + "m"
+      if (n >= 1_000) return (n / 1_000).toFixed(1) + "k"
+      return String(n)
+    }
+
+    export default Plugin.define({
+      id: "toktrack.status",
+      setup(context) {
+        const [usage, setUsage] = createSignal("--")
+
+        const refresh = () => {
+          try {
+            const bun = (globalThis as any).Bun
+            const result = bun.spawnSync({
+              cmd: ["toktrack", "daily", "--json", "--local-only"],
+              stdout: "pipe",
+              stderr: "ignore",
+            })
+            const days = JSON.parse(result.stdout.toString())
+            const now = new Date()
+            const today = [now.getFullYear(), pad(now.getMonth() + 1), pad(now.getDate())].join("-")
+            const entry = Array.isArray(days) && days[0]?.date === today ? days[0] : undefined
+            const tokens =
+              Number(entry?.total_input_tokens ?? 0) +
+              Number(entry?.total_output_tokens ?? 0) +
+              Number(entry?.total_cache_read_tokens ?? 0) +
+              Number(entry?.total_cache_creation_tokens ?? 0) +
+              Number(entry?.total_reasoning_tokens ?? 0)
+            setUsage(compact(tokens) + " tok")
+          } catch {
+            // Keep the last known value if toktrack is unavailable.
+          }
+        }
+
+        refresh()
+        const timer = setInterval(refresh, 30_000)
+
+        const unregister = context.ui.slot({
+          append: "prompt.footer.status",
+          render: () => <text fg={context.theme.text.muted}>toktrack {usage()}</text>,
+        })
+
+        return () => {
+          clearInterval(timer)
+          unregister()
+        }
+      },
+    })
+  '';
+
   services.kanshi = {
     enable = true;
     settings = [
@@ -28,18 +85,12 @@ in
             criteria = "DP-1";
             mode = "2560x1440@200Hz";
             position = "0,0";
-            transform = "270";
+            transform = "0";
           }
           {
             criteria = "DP-2";
             mode = "2560x1440@200Hz";
-            position = "1440,0";
-            transform = "normal";
-          }
-          {
-            criteria = "HDMI-A-2";
-            mode = "2560x1440@143.999Hz";
-            position = "4000,0";
+            position = "2560,0";
             transform = "normal";
           }
         ];
@@ -248,6 +299,22 @@ in
     syntaxHighlighting.enable = true;
     initContent = ''
       fastfetch
+
+      setopt PROMPT_SUBST
+
+      toktrack_prompt_cost() {
+        command -v toktrack >/dev/null 2>&1 || return
+        local today cost
+        today=$(date +%F)
+        cost=$(toktrack daily --json --local-only 2>/dev/null \
+          | jq -r --arg t "$today" '(.[0] // {}) | if .date == $t then (.total_cost_usd // 0) else 0 end' 2>/dev/null)
+        [ -n "$cost" ] && LC_ALL=C printf '$%.2f' "$cost"
+      }
+
+      _toktrack_precmd() { TOKTRACK_COST=$(toktrack_prompt_cost) }
+      precmd_functions+=(_toktrack_precmd)
+
+      RPROMPT='%F{yellow}''${TOKTRACK_COST}%f'
     '';
   };
 
@@ -592,6 +659,7 @@ in
     eza
     fd
     ripgrep
+    jq
     dust
 
     # Terminal Applications
@@ -605,6 +673,7 @@ in
     pastel
     rust-analyzer
     inputs.llm-agents.packages.${pkgs.stdenv.hostPlatform.system}.opencode2
+    inputs.self.packages.${pkgs.stdenv.hostPlatform.system}.toktrack
 
     # Desktop & Wayland Setup
     awww
