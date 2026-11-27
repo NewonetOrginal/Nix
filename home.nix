@@ -91,7 +91,7 @@ in
             criteria = "DP-2";
             mode = "2560x1440@200Hz";
             position = "2560,0";
-            transform = "normal";
+            transform = "0";
           }
         ];
       }
